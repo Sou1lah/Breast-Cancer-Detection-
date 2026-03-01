@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# Breast-Cancer-Detection-
-=======
+
 #  Breast Cancer Detection
 
 Binary classification model that predicts whether a breast tumor is malignant or benign from 30 clinical measurements derived from fine needle aspirate (FNA) images. Built with TensorFlow/Keras on the Wisconsin Breast Cancer Dataset, the model achieves 97% accuracy and — more critically for clinical relevance — 98% recall on malignant cases, meaning it misses only 1 in 42 cancer diagnoses. The project ships with a Streamlit app featuring interactive charts, presets, and feature importance analysis across two methods.
@@ -125,6 +123,3 @@ The app loads the saved model and scaler from [`model/`](./model) at startup. Bo
 - **Feature importance (correlation)** — all 30 features ranked by absolute correlation with the target label
 - **Feature importance (Random Forest)** — importance scores from a 100-tree Random Forest trained on the full dataset
 - **Method agreement analysis** — highlights which features both importance methods agree on, identifying the most reliable predictors
-
----# Breast-Cancer-Detection-
->>>>>>> 2d9d5b3 (first commit)
