@@ -1,107 +1,99 @@
-#  Breast Cancer — What You Need to Know
+#  Breast Cancer — Overview
 
 ## What is Cancer?
 
-Your body is made of trillions of cells that grow, divide, and die in an orderly way. Cancer happens when something goes wrong in a cell's DNA — it starts dividing uncontrollably and doesn't die when it should. These abnormal cells pile up and form a **tumor**.
+The human body consists of trillions of cells that grow, divide, and die in an orderly manner. Cancer occurs when a cell's DNA is damaged, causing it to divide uncontrollably without dying as normal cells do. These abnormal cells accumulate and form a **tumor**.
 
-Not all tumors are dangerous though:
-- **Benign tumor** — grows slowly, doesn't spread, usually not life-threatening
-- **Malignant tumor** — the real cancer. It can invade nearby tissue and **spread to other organs** (called **metastasis**), which is what makes it deadly
-
----
-
-## What is Breast Cancer Specifically?
-
-Breast cancer is when malignant tumors form in breast tissue. It most commonly starts in the **milk ducts** (tubes that carry milk) or **lobules** (glands that produce milk).
-
-You age is a factor — risk increases after 40-50 — but it can affect younger women too, and rarely, men as well.
-
-**Key stats worth knowing:**
-- It's the most common cancer in women worldwide
-- 1 in 8 women will develop it in their lifetime
-- When detected **early**, survival rate is over 99%
-- When detected **late** (after spreading), survival drops dramatically
-
-This is exactly why **early detection = saving lives** — and why your ML project matters.
+Not all tumors are dangerous:
+- **Benign tumor** — grows slowly, does not spread, generally not life-threatening
+- **Malignant tumor** — invasive cancer that can spread to surrounding tissue and distant organs (a process called **metastasis**)
 
 ---
 
-## How is Breast Cancer Detected?
+## What is Breast Cancer?
 
-This is crucial for your project. There are several imaging techniques:
+Breast cancer is characterized by the formation of malignant tumors in breast tissue. It most commonly originates in the **milk ducts** or **lobules** of the breast.
 
-**1. Mammography (X-ray of the breast)**
-- Most common screening tool
-- Uses low-dose X-rays to see inside breast tissue
-- Can detect tumors before they can even be felt
-- Images are called **mammograms**
+Risk increases with age (notably after 40–50), though it can affect individuals of any age, predominantly women and rarely men.
+
+**Key statistics:**
+- Most common cancer among women worldwide
+- Affects approximately 1 in 8 women over a lifetime
+- Early-stage survival rate exceeds 99%
+- Survival rates decline significantly once the cancer has metastasized
+
+---
+
+## Detection Methods
+
+Several imaging modalities are used in clinical practice:
+
+**1. Mammography (X-ray)**
+- Primary screening tool
+- Uses low-dose X-rays to image breast tissue
+- Capable of detecting tumors before they are physically palpable
 
 **2. Ultrasound**
-- Uses sound waves to create images
-- Good for distinguishing fluid-filled cysts from solid tumors
-- The BUSI dataset you found uses this modality
+- Uses sound waves to generate images
+- Effective at differentiating fluid-filled cysts from solid masses
+- Modality used in the BUSI dataset
 
 **3. MRI**
-- Most detailed, but expensive and slow
-- Used for high-risk patients
+- Highest detail imaging modality
+- Reserved for high-risk patients due to cost and scan duration
 
 **4. Biopsy**
-- Not imaging — a doctor physically removes a small tissue sample and examines it under a microscope
-- This is the **ground truth** — the only 100% certain diagnosis
-- This is what creates the labels in your ML dataset (benign / malignant)
+- Not an imaging technique — involves physical extraction of tissue for microscopic analysis
+- Considered the **ground truth** for diagnosis
+- Forms the basis for dataset labels (benign / malignant)
 
 ---
 
-## What Do the Images Actually Show?
+## What Medical Images Reveal
 
-In mammograms and ultrasounds, doctors look for:
+Radiologists examine mammograms and ultrasounds for the following findings:
 
-| Finding | What it means |
+| Finding | Clinical Significance |
 |---|---|
-| **Mass / lump** | A solid area — could be benign or malignant |
-| **Calcifications** | Tiny calcium deposits — certain patterns suggest cancer |
-| **Architectural distortion** | Tissue pulled inward — suspicious sign |
-| **Asymmetry** | One breast looks different from the other |
-
-Your ML model will essentially learn to spot these patterns automatically.
+| **Mass / lump** | Solid area — may be benign or malignant |
+| **Calcifications** | Calcium deposits — certain patterns are associated with malignancy |
+| **Architectural distortion** | Inward pulling of tissue — a suspicious indicator |
+| **Asymmetry** | Structural difference between breasts |
 
 ---
 
-## The Classification Problem (ML angle)
+## The ML Classification Problem
 
-Most breast cancer ML datasets label images into:
+Breast cancer datasets typically label images into three categories:
 
-- **Normal** — no findings
-- **Benign** — tumor present but not cancerous
+- **Normal** — no pathological findings
+- **Benign** — tumor present, non-cancerous
 - **Malignant** — cancerous tumor
 
-So your model is learning: *"given this image, which category does it belong to?"*
-
-This is a **3-class classification problem** (or binary if you merge normal+benign vs malignant).
+This project frames the task as a **3-class classification problem**, where the model learns to assign an image to one of these categories.
 
 ---
 
-## Why is This Hard for ML?
+## Challenges for Machine Learning
 
-A few challenges you'll face in this project:
-
-- **Class imbalance** — far more normal cases than cancer cases in real data
-- **Subtle differences** — benign and malignant can look very similar visually
-- **High stakes** — a false negative (missing cancer) is far worse than a false positive
-- **Small datasets** — labeled medical data is expensive and rare (hence why pretrained models help!)
+| Challenge | Description |
+|---|---|
+| **Class imbalance** | Cancer cases are significantly underrepresented in real-world data |
+| **Visual similarity** | Benign and malignant cases can appear nearly identical |
+| **High stakes** | A false negative (missed cancer) carries serious clinical consequences |
+| **Limited data** | Labeled medical datasets are expensive and scarce |
 
 ---
 
-##  Key Terms to Remember
+## Key Terminology
 
-| Term | Meaning |
+| Term | Definition |
 |---|---|
 | Tumor | Abnormal mass of cells |
 | Benign | Non-cancerous |
 | Malignant | Cancerous |
 | Mammogram | X-ray image of the breast |
-| Metastasis | Cancer spreading to other organs |
-| False Negative | Model says "no cancer" but there is cancer — dangerous! |
-| False Positive | Model says "cancer" but there isn't — causes unnecessary stress |
-| AUC-ROC | Key metric for evaluating medical AI models |
-
+| Metastasis | Spread of cancer to other organs |
+| False Negative | Model predicts no cancer when cancer is present — clinically dangerous |
+| False Positive | Model predicts cancer when none exists |
+| AUC-ROC | Standard evaluation metric for medical classification models |
